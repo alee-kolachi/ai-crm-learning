@@ -11,8 +11,8 @@ model_name = os.getenv("model_name")
 # Function to generate restaurant name, slogan, and menu items
 def generate_cuisine_name_and_items(cuisine):
     llm = ChatGroq(
-        model_name,
-        api_key
+        model_name=model_name,
+        api_key=api_key
     )
 
     # Step 1: Restaurant Name
@@ -52,7 +52,7 @@ def generate_cuisine_name_and_items(cuisine):
 # Streamlit UI
 st.title("🍽️ Restaurant Name Generator")
 
-cuisine = st.sidebar.selectbox("Pick a cuisine", ("Indian", "Sindhi", "Saraiki", "Pakistani", "Arabic", "Mexican", "Italian"))
+cuisine = st.sidebar.selectbox("Pick a cuisine", ("Indian", "Sindhi", "Pakistani", "Arabic", "Mexican", "Italian"))
 
 if cuisine:
     with st.spinner("Generating your restaurant concept..."):
